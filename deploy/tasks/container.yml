@@ -1,0 +1,22 @@
+---
+- name: criando os ctnrs blue e green
+  hosts: docker
+
+  tasks:
+    - name: criando o ctnr green
+      docker_container:
+        name: green
+        image: httpd
+        state: started
+        volumes:
+          - /green:/usr/local/apache2/htdocs/
+
+
+    - name: criando o ctnr blue
+      docker_container:
+        name: blue
+        image: httpd
+        state: started
+        volumes:
+          - /blue:/usr/local/apache2/htdocs/
+

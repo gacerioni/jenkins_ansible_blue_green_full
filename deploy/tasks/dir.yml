@@ -1,0 +1,13 @@
+---
+- name: add os diretorios para o volume do blue green deploy
+  hosts: docker
+
+  tasks:
+    - name: add os diretorios B_G
+      file:
+        path: "{{ item }}"
+        state: directory
+      with_items:
+        - /blue
+        - /green
+
